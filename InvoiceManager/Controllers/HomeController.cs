@@ -43,12 +43,12 @@ namespace InvoiceManager.Controllers
             {
                 Invoice = invoice,
                 Heading =
-                    invoice.Id == 0
-                        ? "Dodawanie nowej faktury"
-                        : "Faktura",
+                invoice.Id == 0
+                    ? "Dodawanie nowej faktury"
+                    : "Faktura",
                 Clients = _clientRepository.GetClients(userId),
                 MethodOfPayments = _invoiceRepository.GetMethodsOfPayment()
-            };
+            }
         }
 
         private Invoice GetNewInvoice(string userId)
