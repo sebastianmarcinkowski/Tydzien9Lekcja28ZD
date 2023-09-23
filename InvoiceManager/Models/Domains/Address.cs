@@ -14,12 +14,16 @@ namespace InvoiceManager.Models.Domains
 
         public int Id { get; set; }
         [Required]
+        [Display(Name = "Ulica")]
         public string Street { get; set; }
         [Required]
+        [Display(Name = "Numer")]
         public string Number { get; set; }
         [Required]
+        [Display(Name = "Miasto")]
         public string City { get; set; }
         [Required]
+        [Display(Name = "Kod podcztowy")]
         public string PostalCode { get; set; }
 
         public ICollection<Client> Clients { get; set; }
