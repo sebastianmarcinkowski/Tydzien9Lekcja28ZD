@@ -1,5 +1,6 @@
 ﻿using InvoiceManager.Models.Domains;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace InvoiceManager.Models.Repositories
 {
@@ -7,12 +8,18 @@ namespace InvoiceManager.Models.Repositories
     {
         public List<Product> GetProducts()
         {
-            throw new System.NotImplementedException();
+            using (var context = new ApplicationDbContext())
+            {
+                return context.Products.ToList();
+            }
         }
 
-        public Product GetProduct(int invoicePositionProductId)
+        public Product GetProduct(int productId)
         {
-            throw new System.NotImplementedException();
+            using (var context = new ApplicationDbContext())
+            {
+                return context.Products.Single(x => x.Id == productId);
+            }
         }
     }
 }
