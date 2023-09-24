@@ -36,11 +36,13 @@
             }
 
             @Html.HiddenFor(x => x.Invoice.Id)
+            @Html.HiddenFor(x => x.Invoice.UserId)
 
             <div class="form-group">
                 @Html.LabelFor(x => x.Invoice.Title)
                 @Html.TextBoxFor(x => x.Invoice.Title,
                     new { @class = "form-control", autofocus = "autofocus" })
+                @Html.ValidationMessageFor(x => x.Invoice.Title)
             </div>
 
             <div class="form-group">
@@ -49,6 +51,7 @@
                     new SelectList(Model.Clients, "Id", "Name"),
                     "-- Wybierz klienta --",
                     new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Invoice.ClientId)
             </div>
 
             if (Model.Invoice.Id != 0)
@@ -67,6 +70,7 @@
                     new SelectList(Model.MethodOfPayments, "Id", "Name"),
                     "-- Wybierz sposób płatności --",
                     new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Invoice.MethodOfPaymentId)
             </div>
 
             <div class="form-group">
@@ -78,6 +82,7 @@
                         @id = "PaymentDate",
                         autocomplete = "odd"
                     })
+                @Html.ValidationMessageFor(x => x.Invoice.PaymentDate)
             </div>
 
             <div class="form-group">
@@ -146,6 +151,20 @@
         }
 
         $(document).ready(function () {
+
+            $.validator.methods.number = function (value, element) {
+                return this.optional(element) || /^-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+            }
+
+            $.validator.methods.date = function (value, element) {
+                var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+                if (true) {
+                    var d = new Date();
+                    return this.optional(element) || !/Invalid|NaN/.test(new Date(d.toLocaleDateString(value)));
+                } else {
+                    return this.optional(element) || !/Invalid|NaN/.test(new Date(value));
+                }
+            };
 
             $('#PaymentDate').datepicker({
                 format: "dd-mm-yyyy",
