@@ -30,6 +30,7 @@ namespace InvoiceManager.Models.Repositories
                     .Include(x => x.User)
                     .Include(x => x.User.Address)
                     .Include(x => x.Client)
+                    .Include(x => x.Client.Address)
                     .Single(x =>
                         x.UserId == userId
                         && x.Id == id);
