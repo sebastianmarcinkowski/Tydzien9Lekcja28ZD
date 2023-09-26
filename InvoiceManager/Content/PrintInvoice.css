@@ -1,28 +1,33 @@
-﻿
-@page {
+﻿@page {
     size: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 0 20px 0 20px;
 }
 
+body {
+    -webkit-print-color-adjust: exact !important;
+}
 
 nav, footer {
     display: none !important;
 }
 
+.no-print {
+    display: none !important;
+}
+
 .row {
-    display: -webkit-box;
-    display: -webkit-flex;
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
     display: flex !important;
 }
 
-.row > div {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    flex: 1;
-}
+    .row > div {
+        -webkit-box-flex: 1 !important;
+        -webkit-flex: 1 !important;
+        flex: 1 !important;
+    }
 
-tr, td, th, thead, thead tr, thead tr th, tfoot {
+tr, td, th, thead, thead tr, thead tr th, tfoot, div {
     page-break-inside: avoid !important;
     page-break-before: avoid !important;
     page-break-after: avoid !important;
@@ -32,31 +37,76 @@ tr, td, th, thead, thead tr, thead tr th, tfoot {
     font-size: 18px;
     text-align: center;
     padding-bottom: 15px;
-    color: black !important;
+    color: #000000 !important;
 }
 
 .header-font {
     font-size: 22px;
     text-transform: uppercase;
     font-weight: bold;
+    color: #0a5790 !important;
 }
 
 .logo {
-    max-height: 100px;
+    max-height: 150px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .top-line {
-    border-top: 1px solid black;
+    border-top: 1px solid #6fa0ab !important;
     margin-top: 5px;
 }
 
-.top-small-caption {
-    font-size: 10px;
+.bottom-line {
+    border-bottom: 1px solid #6fa0ab !important;
     margin-bottom: 5px;
+}
+
+.top-small-caption {
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #0a5791 !important;
 }
 
 th {
     font-weight: normal;
+}
+
+table.table-bordered {
+    border: 1px solid #6fa0ab !important;
+}
+
+    table.table-bordered > thead > tr > th {
+        border: 1px solid #6fa0ab !important;
+        background: #c5ddf0 !important;
+    }
+
+    table.table-bordered > tbody > tr > td {
+        border: 1px solid #6fa0ab !important;
+    }
+
+    table.table-bordered > tfoot > tr > td {
+        border: 1px solid #0a5790 !important;
+        background: #0a5790 !important;
+        color: #ffffff !important;
+    }
+
+
+.bordered-signature {
+    border: 1px solid #6fa0ab !important;
+    min-height: 150px;
+}
+
+.singnature-description {
+    color: #c2c3c4 !important;
+    font-size: 12px;
+}
+
+.margin-top-100px {
+    margin-top: 100px;
+}
+
+.padding-top-bottom-25px {
+    padding: 25px 0 25px 0;
 }

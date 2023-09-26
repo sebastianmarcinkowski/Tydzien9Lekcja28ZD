@@ -1,4 +1,5 @@
-﻿@model InvoiceManager.Models.Domains.Invoice
+﻿@using System.Collections.Specialized
+@model InvoiceManager.Models.Domains.Invoice
 
 @{
     ViewBag.Title = "Faktura";
@@ -18,7 +19,7 @@
     <div class="row mt-5">
 
         <div class="col-5">
-            <img src="@Url.Content("~/Content/Images/logo.png")" alt="logo" class="logo" />
+            <img src="@Url.Content("~/Content/Images/cyber_centre_logo.png")" alt="logo" class="logo" />
         </div>
 
         <div class="col-4 offset-3">
@@ -75,7 +76,7 @@
         </div>
     </div>
 
-    <table class="table table-bordered mt-5">
+    <table class="table table-bordered mt-5 mb-5">
         <thead>
             <tr>
                 <th>Lp</th>
@@ -86,41 +87,46 @@
         </thead>
         <tbody>
 
-            @foreach (var position in Model.InvoicePositions)
-            {
-                <tr>
-                    <td>@position.Lp</td>
-                    <td>@position.Product.Name</td>
-                    <td>@position.Quantity</td>
-                    <td>@position.Value</td>
-                </tr>
-            }
+        @foreach (var position in Model.InvoicePositions)
+        {
+            <tr>
+                <td>@position.Lp</td>
+                <td>@position.Product.Name</td>
+                <td>@position.Quantity</td>
+                <td>@position.Value</td>
+            </tr>
+        }
 
         </tbody>
+        <tfoot>
+
+            <tr>
+                <td colspan="3">RAZEM DO ZAPŁATY</td>
+                <td class="font-weight-bolder"><strong>@Model.Value PLN</strong></td>
+            </tr>
+
+        </tfoot>
     </table>
 
-    <div class="row">
+    <div class="row mt-0 mb-5">
         <div class="col-12">
-            <div class="text-right">Wartość:  <strong>@Model.Value</strong></div>
 
             @if (!string.IsNullOrWhiteSpace(Model.Comments))
             {
-                <div class="text-left">Uwagi: @Model.Comments</div>
+                <div class="text-left top-line padding-top-bottom-25px bottom-line"><strong>Uwagi:</strong> @Model.Comments</div>
             }
 
         </div>
     </div>
 
-    <div class="row mt-5">
-        <div class="col-6">
-            <div>Wystawił:</div>
-            <div>@Model.User.Name</div>
-            <div>.............................................................</div>
+    <div class="row">
+        <div class="col-5 bordered-signature align-bottom">
+            <div class="margin-top-100px">@Model.Client.Name</div>
+            <div class="singnature-description">Osoba upoważniona do odbioru dokumentu</div>
         </div>
-        <div class="col-6">
-            <div>Odebrał:</div>
-            <div>@Model.Client.Name</div>
-            <div>.............................................................</div>
+        <div class="col-5 offset-2 bordered-signature">
+            <div class="margin-top-100px">@Model.User.Name</div>
+            <div class="singnature-description">Osoba upoważniona do wystawienia dokumentu</div>
         </div>
     </div>
 

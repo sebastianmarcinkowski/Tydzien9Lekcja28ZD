@@ -13,16 +13,16 @@ namespace InvoiceManager.Models.Domains
         }
 
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Pole Ulica jest wymagane.")]
         [Display(Name = "Ulica")]
         public string Street { get; set; }
-        [Required]
-        [Display(Name = "Numer")]
+        [Required(ErrorMessage = "Pole Numer lokalu jest wymagane.")]
+        [Display(Name = "Numer lokalu")]
         public string Number { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Pole Miasto jest wymagane.")]
         [Display(Name = "Miasto")]
         public string City { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Pole Kod pocztowy jest wymagane.")]
         [Display(Name = "Kod podcztowy")]
         public string PostalCode { get; set; }
 

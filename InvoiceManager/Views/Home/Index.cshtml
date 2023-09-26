@@ -8,7 +8,7 @@
 
 <button class="btn btn-primary mb-3"
         onclick='window.location.href="@Url.Action("Invoice", "Home")"'>
-    Dodaj
+    <i class="fas fa-receipt"></i> Dodaj fakturę
 </button>
 
 @if (Model != null && Model.Any())
@@ -43,7 +43,7 @@
                     <td>
                         <button class="btn btn-danger btn-sm"
                                 onclick="deleteInvoice('@invoice.Id', this)">
-                            Usuń
+                            <i class="fas fa-trash-alt"></i> Usuń
                         </button>
                     </td>
                 </tr>

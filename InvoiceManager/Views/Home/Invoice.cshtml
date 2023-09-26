@@ -11,14 +11,32 @@
     <button class="btn btn-primary mb-3"
             onclick='window.location.href="@Url.Action("InvoicePosition", "Home",
                                                new { invoiceId = Model.Invoice.Id })"'>
-        Dodaj pozycję
+        <i class="fas fa-cart-plus"></i> Dodaj pozycję
     </button>
 
     <button class="btn btn-secondary mb-3"
             onclick="generatePdf()">
-        Generuj PDF
+        <i class="far fa-file-pdf"></i> Generuj PDF
     </button>
+
+    <a href="@Url.Action("PrintInvoice", "Print", new { id = Model.Invoice.Id })"
+       target="_blank">
+        <button class="btn btn-secondary mb-3">
+            <i class="fas fa-print"></i> Drukuj
+        </button>
+    </a>
 }
+
+@if (Model.Invoice.Id != 0)
+{
+
+    <p class="alert alert-info mt-4 mb-4">
+        Aby dokument wydrukował się poprawnie należy
+        <strong>włączyć opcję "Drukuj tło (kolory oraz obrazy)"</strong> lub opcję analogiczną.
+    </p>
+
+}
+
 
 <div class="row">
 
@@ -94,7 +112,7 @@
             </div>
 
             <button class="btn btn-primary btn-lg mb-5" type="submit">
-                Zapisz
+                <i class="fas fa-save"></i> Zapisz
             </button>
         }
 

@@ -1,0 +1,16 @@
+﻿@using System.Collections.Specialized
+@model InvoiceManager.Models.Domains.Invoice
+
+@{
+    ViewBag.Title = "Drukowanie faktury";
+}
+
+<link href="@Url.Content("~/Content/PrintInvoice.css")" rel="stylesheet" type="text/css" />
+
+@Html.Partial("InvoiceTemplate", Model)
+
+<script type="text/javascript">
+
+    window.print();
+
+</script>
