@@ -21,8 +21,11 @@ namespace InvoiceManager.Models
         [Compare("Password", ErrorMessage = "Hasła się nie zgadzają.")]
         public string ConfirmPassword { get; set; }
 
-        [Display(Name = "Imię i nazwisko")]
+        [Display(Name = "Nazwa")]
         public string Name { get; set; }
+
+        [Display(Name = "NIP")]
+        public string Nip { get; set; }
 
         public Address Address { get; set; }
     }

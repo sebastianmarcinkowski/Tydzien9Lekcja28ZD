@@ -153,6 +153,7 @@ namespace InvoiceManager.Controllers
                     UserName = model.Email,
                     Email = model.Email,
                     Name = model.Name,
+                    Nip = model.Nip,
                     Address = model.Address
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
