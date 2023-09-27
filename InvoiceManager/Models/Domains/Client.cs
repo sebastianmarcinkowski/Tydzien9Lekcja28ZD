@@ -14,14 +14,16 @@ namespace InvoiceManager.Models.Domains
         }
 
         public int Id { get; set; }
-        [Required]
+        [Display(Name = "Nazwa")]
+        [Required(ErrorMessage = "Pole Nazwa jest wymagane.")]
         public string Name { get; set; }
         public int AddressId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Pole E-mail jest wymagane.")]
         public string Email { get; set; }
         [Required]
         [ForeignKey("User")]
         public string UserId { get; set; }
+        [Display(Name = "NIP")]
         public string Nip { get; set; }
 
         public Address Address { get; set; }

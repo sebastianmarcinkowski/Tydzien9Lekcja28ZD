@@ -29,6 +29,14 @@
                     <li class="nav-item active">
                         @Html.ActionLink("Strona główna", "Index", "Home", null, new { @class = "nav-link" })
                     </li>
+                    
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li class="nav-item active">
+                            @Html.ActionLink("Klienci", "Index", "Client", null, new { @class = "nav-link" })
+                        </li>
+                    }
+
                     <li class="nav-item active">
                         @Html.ActionLink("O mnie", "About", "Home", null, new { @class = "nav-link" })
                     </li>
