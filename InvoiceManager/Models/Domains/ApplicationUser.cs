@@ -18,6 +18,7 @@ namespace InvoiceManager.Models
 
         public string Name { get; set; }
         public int AddressId { get; set; }
+        public string Nip { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

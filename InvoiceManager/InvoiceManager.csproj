@@ -180,6 +180,14 @@
     <Compile Include="Migrations\202309231039228_Init.designer.cs">
       <DependentUpon>202309231039228_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202309271844494_AddNipToClientAndUser.cs" />
+    <Compile Include="Migrations\202309271844494_AddNipToClientAndUser.designer.cs">
+      <DependentUpon>202309271844494_AddNipToClientAndUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309271857536_ChangeNipTypeToString.cs" />
+    <Compile Include="Migrations\202309271857536_ChangeNipTypeToString.designer.cs">
+      <DependentUpon>202309271857536_ChangeNipTypeToString.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Domains\Address.cs" />
     <Compile Include="Models\Domains\Client.cs" />
@@ -245,6 +253,8 @@
     <Content Include="Content\svg-with-js.min.css" />
     <Content Include="Content\v4-shims.css" />
     <Content Include="Content\v4-shims.min.css" />
+    <Content Include="DbScripts\202309271844494_AddNipToClientAndUser.sql" />
+    <Content Include="DbScripts\202309271857536_ChangeNipTypeToString.sql" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -545,6 +555,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202309231039228_Init.resx">
       <DependentUpon>202309231039228_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309271844494_AddNipToClientAndUser.resx">
+      <DependentUpon>202309271844494_AddNipToClientAndUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309271857536_ChangeNipTypeToString.resx">
+      <DependentUpon>202309271857536_ChangeNipTypeToString.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

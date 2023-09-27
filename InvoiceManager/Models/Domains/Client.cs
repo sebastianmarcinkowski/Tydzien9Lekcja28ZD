@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
 
 namespace InvoiceManager.Models.Domains
 {
@@ -21,6 +22,7 @@ namespace InvoiceManager.Models.Domains
         [Required]
         [ForeignKey("User")]
         public string UserId { get; set; }
+        public string Nip { get; set; }
 
         public Address Address { get; set; }
         public ApplicationUser User { get; set; }
