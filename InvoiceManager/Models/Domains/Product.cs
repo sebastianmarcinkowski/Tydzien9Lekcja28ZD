@@ -12,8 +12,11 @@ namespace InvoiceManager.Models.Domains
         }
 
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Pole Nazwa jest wymagane.")]
+        [Display(Name = "Nazwa")]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Pole Wartość jest wymagane.")]
+        [Display(Name = "Wartość")]
         public decimal Value { get; set; }
 
         public ICollection<InvoicePosition> InvoicePositions { get; set; }
